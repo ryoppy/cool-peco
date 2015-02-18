@@ -1,0 +1,15 @@
+echo "# ========================================"
+echo "# just template."
+echo "# ^r is ctrl+r. should change your favorite key."
+echo "# ========================================"
+
+for fp in $(ls $basedir/functions/* | grep -v _); do
+  local a=$(basename $fp)         # ex) cool-peco-alias
+  local b=$(echo $a | cut -b 11-) # ex) alias
+  local c=$b[0,1]                 # ex) a
+  echo "### $a"
+  echo "alias cp$c=$a"
+  echo "zle -N $a"
+  echo "bindkey '^p^$c' $a"
+  echo ""
+done

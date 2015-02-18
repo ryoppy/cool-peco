@@ -1,0 +1,53 @@
+#!/usr/bin/env zsh
+
+basedir=$(dirname $0)
+
+# load util
+source $basedir/util.zsh
+
+# add FPATH
+export FPATH="$FPATH:$basedir/functions"
+
+# add autoload
+for fp in $(ls $basedir/functions/*); do
+  local f=$(basename $fp)
+  autoload -U $f
+done
+
+# enable completion
+autoload -U compinit
+compinit -u
+
+# define main function
+function cool-peco() {
+  action=$1
+
+  cool-peco-help () {
+    echo 'Usage: cool-peco <command>'
+    echo
+    echo 'Commands:'
+    for fp in $(ls $basedir/functions/* | grep -v _); do
+      echo -n '  '
+      basename $fp | cut -b 11- # trim "cool-peco-"
+    done
+  }
+
+  case $action in
+    -h|--help)
+      cool-peco-help
+      return
+      ;;
+    *)
+      if [ $# -gt 0 ]; then
+        shift
+      fi
+      ;;
+  esac
+
+  if type "cool-peco-$action" > /dev/null 2>&1; then
+    "cool-peco-$action" $@
+  else
+    cool-peco-help
+    echo "not found $action"
+  fi
+}

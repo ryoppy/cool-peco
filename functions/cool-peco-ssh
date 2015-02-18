@@ -1,0 +1,8 @@
+##
+# select ssh host from ~/.ssh/config
+#
+local res
+res=$(grep "Host " ~/.ssh/config | cut -b 6- | peco)
+if [ -n "$res" ]; then
+  _cool-peco-on-complete "ssh $res"
+fi

@@ -1,0 +1,6 @@
+##
+# file name search.
+#
+local res
+res=$(find . | grep -v "/\." | grep $1 | peco)
+_cool-peco-on-complete $res

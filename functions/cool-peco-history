@@ -1,0 +1,6 @@
+##
+# history.
+#
+local res
+res=$(fc -l -n 1 | tail -r | peco)
+_cool-peco-on-complete $res
