@@ -14,18 +14,22 @@ ssh              -- ssh host list from ~/.ssh/config.
 
 ## INSTALL
 
-just copy and paste.
+just copy and paste. ($CPDIR anywhere)
 
 ```
-CPDIR=~/ # anywhere
+CPDIR=~/
 cd $CPDIR
 git clone https://github.com/ryoppy/cool-peco.git
 echo "source $CPDIR/cool-peco/cool-peco" >> ~/.zshrc
 ```
 
-## USEAGE
-
 re-login
+
+```
+exec zsh -l
+```
+
+## USEAGE
 
 ```
 $ cool-peco <TAB>
