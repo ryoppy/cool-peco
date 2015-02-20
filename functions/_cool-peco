@@ -2,11 +2,13 @@
 
 _cool-peco() {
   _values \
-    'commands' \
+    commands \
     'alias[generate alias and keybinding template]' \
-    'history[command history.]' \
-    'filename-search[you can pass query. (ex: cool-peco filename-search foo)]' \
-    'ssh[ssh host list from ~/.ssh/config.]' \
-    'git-checkout[show git branches. and checkout selected branch.]' \
-    'git-log[show git log. and insert to prompt selected commit id.]'
+    'filename-search[file name search]' \
+    'git-checkout[select branch, and checkout]' \
+    'git-log[select git log]' \
+    'history[select command history]' \
+    'ps[select pid by `ps aux`]' \
+    'ssh[select ssh host from ~/.ssh/config]' \
+    'tmux-session[select tmux session]' \
 }

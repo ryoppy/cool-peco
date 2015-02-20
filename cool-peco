@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-basedir=$(dirname $0)
+readonly local basedir=$(dirname $0)
 
 # load util
 source $basedir/util.zsh
@@ -9,8 +9,9 @@ source $basedir/util.zsh
 export FPATH="$FPATH:$basedir/functions"
 
 # add autoload
+local fp f
 for fp in $(ls $basedir/functions/*); do
-  local f=$(basename $fp)
+  f=$(basename $fp)
   autoload -U $f
 done
 
@@ -20,12 +21,13 @@ compinit -u
 
 # define main function
 function cool-peco() {
-  action=$1
+  readonly local action=$1
 
   cool-peco-help () {
     echo 'Usage: cool-peco <command>'
     echo
     echo 'Commands:'
+    local fp
     for fp in $(ls $basedir/functions/* | grep -v _); do
       echo -n '  '
       basename $fp | cut -b 11- # trim "cool-peco-"

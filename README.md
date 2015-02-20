@@ -5,11 +5,13 @@
 ```
 $ cool-peco
 alias            -- generate alias and keybinding template
-filename-search  -- you can pass query. (ex: cool-peco filename-search foo)
-git-checkout     -- show git branches. and checkout selected branch.
-git-log          -- show git log. and insert to prompt selected commit id.
-history          -- command history.
-ssh              -- ssh host list from ~/.ssh/config.
+filename-search  -- file name search
+git-checkout     -- select branch, and checkout
+git-log          -- select git log
+history          -- select command history
+ps               -- select pid by `ps aux`
+ssh              -- select ssh host from ~/.ssh/config
+tmux-session     -- select tmux session
 ```
 
 ## INSTALL

@@ -1,5 +1,5 @@
 ##
-# git checkout from branch -a list.
+# select branch, and checkout
 #
 local res
 local branch=$(git branch -a | peco | tr -d ' ')
