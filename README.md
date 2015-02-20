@@ -55,6 +55,7 @@ geenrate alais and keybinds.
 
 ## TODO
 
-- [ ] ps
-- [ ] tmux session
+- [x] ps
+- [x] tmux session
 - [ ] clipboard
+- [ ] move directory
