@@ -1,5 +1,6 @@
 ##
 # select pid by `ps aux`
 #
-local res=$(ps aux | peco | awk '{print $2}')
+local res
+res=$(ps aux | peco | awk '{print $2}')
 _cool-peco-on-complete $res

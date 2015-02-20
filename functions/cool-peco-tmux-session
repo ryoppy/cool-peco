@@ -1,7 +1,8 @@
 ##
 # select tmux session
 #
-local res=$(tmux list-sessions | peco | awk -F':' '{print $1}')
+local res
+res=$(tmux list-sessions | peco | awk -F':' '{print $1}')
 if [ -n "$res" ]; then
   _cool-peco-on-complete "tmux attach -t $res"
 fi
