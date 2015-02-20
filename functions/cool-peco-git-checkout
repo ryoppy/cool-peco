@@ -8,7 +8,7 @@ if [ -n "$branch" ]; then
     local b=$(echo $branch | awk -F'/' '{print $3}')
     res="git checkout -b ${b} ${branch}"
   else
-    res"git checkout ${branch}"
+    res="git checkout ${branch}"
   fi
 fi
 
