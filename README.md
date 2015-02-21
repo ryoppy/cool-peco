@@ -45,7 +45,7 @@ enjoy!
 $ cool-peco alias
 ```
 
-geenrate alais and keybinds.
+generate alias and keybinds.
 
 ## Why "cool" peco
 
