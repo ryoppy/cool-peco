@@ -6,6 +6,7 @@
 $ cool-peco
 alias            -- generate alias and keybinding template
 filename-search  -- file name search
+ghq              -- select git repository by ghq command
 git-checkout     -- select branch, and checkout
 git-log          -- select git log
 history          -- select command history
