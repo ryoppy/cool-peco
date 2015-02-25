@@ -1,0 +1,8 @@
+##
+# select git repository by ghq command
+#
+local res
+res=$(ghq list | peco --query "$LBUFFER")
+if [ -n "$res" ]; then
+  _cool-peco-on-complete "cd $(ghq root)/$res"
+fi
