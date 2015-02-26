@@ -6,7 +6,7 @@ function _zle-is-active() {
 # when use keybind, use zle.
 # when use alias, use print.
 function _cool-peco-on-complete() {
-  if _zle-is-active; then
+  if [[ _zle-is-active -eq 0 ]]; then
     BUFFER=$1
     CURSOR=$#BUFFER
     zle clear-screen
