@@ -42,11 +42,26 @@ enjoy!
 
 ## ALIAS
 
+keybind or alias
+
+add ~/.zshrc
+
+```
+zle -N cool-peco-ssh
+bindkey '^h' cool-peco-ssh # ctrl+h
+```
+
+or
+
+```
+alias sp=cool-peco-ssh
+```
+
+generate alias and keybinds template.
+
 ```
 $ cool-peco alias
 ```
-
-generate alias and keybinds.
 
 ## Why "cool" peco
 
