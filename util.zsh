@@ -1,7 +1,7 @@
 # when use keybind, use zle.
 # when use alias, use print.
 function _cool-peco-on-complete() {
-  if [[ "$ZLE_STATE" =~ "[a-z]" ]]; then
+  if zle; then
     BUFFER=$1
     CURSOR=$#BUFFER
     zle clear-screen
