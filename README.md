@@ -63,6 +63,29 @@ generate alias and keybinds template.
 $ cool-peco alias
 ```
 
+## Example settings
+
+add ~/.zshrc
+
+```
+if (( $+functions[cool-peco] )); then
+  alias ff=cool-peco-filename-search
+  alias gbb=cool-peco-git-checkout
+  alias gll=cool-peco-git-log
+  alias ta=cool-peco-tmux-session
+  alias cg=cool-peco-ghq
+
+  zle -N cool-peco-history
+  bindkey '^r' cool-peco-history
+
+  zle -N cool-peco-ssh
+  bindkey '^h' cool-peco-ssh
+
+  zle -N cool-peco-ps
+  bindkey '^p' cool-peco-ps
+fi
+```
+
 ## Why "cool" peco
 
 "cool poco" is japanese comedian. ヾ(⌒(ﾉ'ω')ﾉ
