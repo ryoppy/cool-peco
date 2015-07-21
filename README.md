@@ -76,7 +76,7 @@ if (( $+functions[cool-peco] )); then
   alias cg=cool-peco-ghq
 
   zle -N cool-peco-history
-  bindkey '^r' cool-peco-history
+  bindkey '^r' cool-peco-history # ctrl+r
 
   zle -N cool-peco-ssh
   bindkey '^h' cool-peco-ssh
