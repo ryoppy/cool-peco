@@ -3,4 +3,4 @@
 #
 local res
 res=$(git log --oneline --decorate=full | peco | awk '{print $1}')
-_cool-peco-on-complete $res
+_cool-peco-insert-command-line $res
