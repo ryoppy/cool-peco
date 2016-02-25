@@ -12,4 +12,4 @@ if [ -n "$branch" ]; then
   fi
 fi
 
-_cool-peco-on-complete $res
+_cool-peco-insert-command-line $res

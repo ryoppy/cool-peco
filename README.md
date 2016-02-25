@@ -2,99 +2,93 @@
 
 [peco](https://github.com/peco/peco) utils.
 
-```
-$ cool-peco
-alias            -- generate alias and keybinding template
-filename-search  -- file name search
-ghq              -- select git repository by ghq command
-git-checkout     -- select branch, and checkout
-git-log          -- select git log
-history          -- select command history
-ps               -- select pid by `ps aux`
-ssh              -- select ssh host from ~/.ssh/config
-tmux-session     -- select tmux session
-```
-
-## INSTALL
-
-just copy and paste. ($CPDIR anywhere)
+## Install
 
 ```
 CPDIR=~/
 cd $CPDIR
 git clone https://github.com/ryoppy/cool-peco.git
-echo "source $CPDIR/cool-peco/cool-peco" >> ~/.zshrc
+cd cool-peco
+sh ./install.sh
 ```
 
-re-login
+and re-login.
+
+## Usage
 
 ```
-exec zsh -l
+$ cool-peco-<TAB>
 ```
 
-## USEAGE
-
-```
-$ cool-peco <TAB>
-```
-
-enjoy!
-
-## ALIAS
+## Alias
 
 keybind or alias
 
 add ~/.zshrc
 
 ```
-zle -N cool-peco-ssh
-bindkey '^h' cool-peco-ssh # ctrl+h
+bindkey '^r' cool-peco-history # ctrl+r
 ```
 
 or
 
 ```
-alias sp=cool-peco-ssh
+alias hist=cool-peco-history
 ```
 
-generate alias and keybinds template.
-
-```
-$ cool-peco alias
-```
-
-## Example settings
+## Setting examples
 
 add ~/.zshrc
 
 ```
-if (( $+functions[cool-peco] )); then
-  alias ff=cool-peco-filename-search
-  alias gbb=cool-peco-git-checkout
-  alias gll=cool-peco-git-log
-  alias ta=cool-peco-tmux-session
-  alias cg=cool-peco-ghq
+bindkey '^r' cool-peco-history # ctrl+r
+bindkey '^h' cool-peco-ssh
+bindkey '^p' cool-peco-ps
 
-  zle -N cool-peco-history
-  bindkey '^r' cool-peco-history # ctrl+r
-
-  zle -N cool-peco-ssh
-  bindkey '^h' cool-peco-ssh
-
-  zle -N cool-peco-ps
-  bindkey '^p' cool-peco-ps
-fi
+alias ff=cool-peco-filename-search
+alias gbb=cool-peco-git-checkout
+alias gll=cool-peco-git-log
+alias ta=cool-peco-tmux-session
+alias cg=cool-peco-ghq
 ```
+
+## Functions
+
+- cool-peco-filename-search
+- cool-peco-ghq
+- cool-peco-git-checkout
+- cool-peco-git-log
+- cool-peco-history
+- cool-peco-ps
+- cool-peco-ssh
+- cool-peco-tmux-session
+
+## Add custom functions
+
+If you wanna add new function, just add to `./customs` directory.
+
+```
+$ cp ./customs/cool-peco-custom-example ./customs/cool-peco-custom-new
+```
+
+and re-login.
+
+```
+$ cool-peco-custom-new
+```
+
+use alias?
+
+```
+bindkey '^e' cool-peco-custom-new # ctrl+e
+# or
+alias cn=cool-peco-custom-new
+```
+
+`./customs/*` is contains `.gitignore`.
 
 ## Why "cool" peco
 
 "cool poco" is japanese comedian. ヾ(⌒(ﾉ'ω')ﾉ
 
 ![クールポコ](./cool-poco.jpg)
-
-## TODO
-
-- [x] ps
-- [x] tmux session
-- [ ] clipboard
-- [ ] move directory

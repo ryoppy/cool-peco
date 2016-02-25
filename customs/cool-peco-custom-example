@@ -1,0 +1,5 @@
+local result=$(ls | peco)
+
+if [ -n "$result" ]; then
+  _cool-peco-insert-command-line "file '$result'"
+fi

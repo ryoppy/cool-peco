@@ -4,5 +4,5 @@
 local res
 res=$(grep "Host " ~/.ssh/config | grep -v '*' | cut -b 6- | peco)
 if [ -n "$res" ]; then
-  _cool-peco-on-complete "ssh $res"
+  _cool-peco-insert-command-line "ssh $res"
 fi
