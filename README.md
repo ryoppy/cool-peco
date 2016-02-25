@@ -2,6 +2,19 @@
 
 [peco](https://github.com/peco/peco) utils.
 
+## Functions
+
+- cool-peco-filename-search
+- cool-peco-ghq
+- cool-peco-git-checkout
+- cool-peco-git-log
+- cool-peco-history
+- cool-peco-ps
+- cool-peco-ssh
+- cool-peco-tmux-session
+
+![demo](./cool-poco-demo.gif)
+
 ## Install
 
 ```
@@ -52,16 +65,6 @@ alias ta=cool-peco-tmux-session
 alias cg=cool-peco-ghq
 ```
 
-## Functions
-
-- cool-peco-filename-search
-- cool-peco-ghq
-- cool-peco-git-checkout
-- cool-peco-git-log
-- cool-peco-history
-- cool-peco-ps
-- cool-peco-ssh
-- cool-peco-tmux-session
 
 ## Add custom functions
 
