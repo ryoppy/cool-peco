@@ -13,7 +13,7 @@
 - cool-peco-ssh
 - cool-peco-tmux-session
 
-![demo](./cool-poco-demo.gif)
+![demo](./cool-peco-demo.gif)
 
 ## Install
 
