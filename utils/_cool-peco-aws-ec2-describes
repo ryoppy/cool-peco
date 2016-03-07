@@ -1,0 +1,31 @@
+#!/bin/zsh
+
+##
+# ec2 instance describes
+#
+# Usage:
+#   _cool-peco-aws-ec2-describes [:output template] [:query option]
+#
+# Example:
+#   $ _cool-peco-aws-ec2-describes "ssh ec2-user@{3}"
+#   > ssh ec2-user@123.456.789.0
+#
+# {3} is PublicIpAddress. this is based on "[State.Name, Tags[0].Value, InstanceId, InstanceType, PublicIpAddress, PrivateIpAddress]"
+#
+local outputTemplate=$1
+local queryOption=${2:-'Reservations[*].Instances[*].[State.Name, Tags[0].Value, InstanceId, InstanceType, PublicIpAddress, PrivateIpAddress]'}
+
+local res="$(aws ec2 describe-instances --query "${queryOption}" --output text | peco)"
+
+local py
+py=`cat <<EOS
+xs = "${res}".split("\t")
+print "${outputTemplate}".format(*xs)
+EOS
+`
+
+local output="$(echo "$py" | python)"
+
+if [[ -n "$output" ]]; then
+  echo $output
+fi
