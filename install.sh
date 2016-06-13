@@ -6,7 +6,8 @@ _cool_peco_init_script=$(
   cat <<EOF
 
 # === cool-peco init ===
-FPATH="\$FPATH:$(cd $(dirname $0); pwd)"
+COOLPECOHOME=$(cd $(dirname $0); pwd)
+FPATH="\$FPATH:\$COOLPECOHOME"
 autoload -Uz cool-peco
 cool-peco
 # ======================

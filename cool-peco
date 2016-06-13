@@ -1,4 +1,4 @@
-local readonly _cool_peco_basedir=$(dirname $0)
+local readonly _cool_peco_basedir=$COOLPECOHOME
 
 FPATH=$FPATH:$_cool_peco_basedir/utils
 FPATH=$FPATH:$_cool_peco_basedir/functions
@@ -6,7 +6,7 @@ FPATH=$FPATH:$_cool_peco_basedir/customs
 autoload -Uz _cool-peco-insert-command-line
 
 local fp
-for fp in $(ls $_cool_peco_basedir/{functions,customs}/*); do
+for fp in $(ls $COOLPECOHOME/{functions,customs}/*); do
   local f=$(basename $fp)
   autoload -Uz $f
   zle -N $f
