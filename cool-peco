@@ -1,16 +1,16 @@
-local readonly _cool_peco_basedir=$(dirname $0)
+function() {
+  for dir in ${^fpath}/../cool-peco/{utils,functions,customs}(N-/); do
+    FPATH=$FPATH:$dir
+  done
+  autoload -Uz _cool-peco-insert-command-line
 
-FPATH=$FPATH:$_cool_peco_basedir/utils
-FPATH=$FPATH:$_cool_peco_basedir/functions
-FPATH=$FPATH:$_cool_peco_basedir/customs
-autoload -Uz _cool-peco-insert-command-line
-
-local fp
-for fp in $(ls $_cool_peco_basedir/{functions,customs}/*); do
-  local f=$(basename $fp)
-  autoload -Uz $f
-  zle -N $f
-done
+  local file f
+  for file in ${^fpath}/../cool-peco/{utils,functions,customs}/*(N-.); do
+    f=$(basename $file)
+    autoload -Uz $f
+    zle -N $f
+  done
+}
 
 # for backward compability.
 function cool-peco() {}
