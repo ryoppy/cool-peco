@@ -1,0 +1,8 @@
+local result=$(git stash list | peco)
+
+if [ -n "$result" ]; then
+  echo $result
+  result = $(awk -F':' '{print $1}')
+  echo $result
+  _cool-peco-insert-command-line "git stash show -p '$result'"
+fi
