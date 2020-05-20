@@ -1,0 +1,6 @@
+local row=$(aws --profile=my ec2 describe-instances | jq -r '.Reservations[] | .Instances[] | [.PrivateIpAddress,.InstanceId, (.Tags[] | select(.Key == "Name") | .Value)] | join("\t")' | peco)
+local result=$(echo "$row" | awk '{print $2}')
+
+if [ -n "$result" ]; then
+  _cool-peco-insert-command-line $result
+fi

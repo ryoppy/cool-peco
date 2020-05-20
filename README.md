@@ -12,6 +12,7 @@
 - cool-peco-ps
 - cool-peco-ssh
 - cool-peco-tmux-session
+- cool-peco-aws-ec2-instances
 
 ![demo](./cool-peco-demo.gif)
 
